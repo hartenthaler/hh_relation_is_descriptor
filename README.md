@@ -43,6 +43,12 @@ For example, you would read the following GEDCOM code as
 
 `2 RELA great-grandson`
 
+The module supports
+* INDI:ASSO:RELA (GEDCOM standard)
+* INDI:*:ASSO:RELA (no standard GEDCOM, but supported by webtrees)
+* INDI:*:_ASSO:RELA (using a custom tag _ASSO like in INDI:BIRT:_ASSO)
+* FAM:*:_ASSO:RELA (using a custom tag _ASSO like in FAM:MARR:_ASSO).
+
 <a name="usage"></a>
 ## Usage
 
@@ -57,10 +63,14 @@ you have to add them at the end of the file `RelationIsDescriptorAddon.php`.
 <a name="requirements"></a>
 ## Requirements
 
-This module requires **webtrees** version 2.0 or later.
+This module requires **webtrees** version 2.1 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** 2.0.19 and 2.1.0-alpha.1 version and all available themes and all other custom modules.
+This module was tested with **webtrees** 2.1.0-alpha.1 version.
+
+Using this module together with webtrees 2.0 is possible,
+but you cannot use the selection menu to add a new custom relation descriptor.
+You have to edit raw GEDCOM.
 
 <a name="installation"></a>
 ## Installation
