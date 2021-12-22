@@ -3,12 +3,8 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-![webtrees major version](https://img.shields.io/badge/webtrees-v2.x.x-green)
+![webtrees major version](https://img.shields.io/badge/webtrees-v2.1.x-green)
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_relation_is_descriptor)
-
-!!! *This is a beta Version! Do not install in a productive system!* !!!
-
-!!! Report issues, please !!!
 
 This [webtrees](https://www.webtrees.net/) custom module
 provides additional relation descriptors.
@@ -44,7 +40,7 @@ For example, you would read the following GEDCOM code as
 `2 RELA great-grandson`
 
 The module supports
-* INDI:ASSO:RELA (GEDCOM standard)
+* INDI:ASSO:RELA (GEDCOM standard like in the example above)
 * INDI:*:ASSO:RELA (no standard GEDCOM, but supported by webtrees)
 * INDI:*:_ASSO:RELA (using a custom tag _ASSO like in INDI:BIRT:_ASSO)
 * FAM:*:_ASSO:RELA (using a custom tag _ASSO like in FAM:MARR:_ASSO).
