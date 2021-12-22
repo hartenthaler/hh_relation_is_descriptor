@@ -70,14 +70,14 @@ This section documents installation instructions for this module.
 1. Download the [latest release](https://github.com/hartenthaler/hh_relation_is_descriptor/releases/latest).
 3. Unzip the package into your `webtrees/modules_v4` directory of your web server.
 4. Rename the folder to `hh_relation_is_descriptor`. It's safe to overwrite the respective directory if it already exists.
-5. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Genealogy/Menus</span>,
-   and find the module. It will be called "Custom Relation Descriptors". Check if it has a tick for "Enabled".
+5. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Other</span>,
+   and find the module. It will be called "Custom Relation Descriptors".
 
 <a name="upgrade"></a>
 ## Upgrade
 
 To update simply replace the hh_relation_is_descriptor
-files with the new ones from the latest release.
+files with the new ones from the [latest release](https://github.com/hartenthaler/hh_relation_is_descriptor/releases/latest).
 
 <a name="support"></a>
 ## Support
