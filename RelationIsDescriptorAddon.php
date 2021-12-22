@@ -22,18 +22,29 @@ declare(strict_types=1);
 
 namespace Hartenthaler\Webtrees\Module\RelationIsDescriptorAddon;
 
-use Fisharebest\Webtrees\Elements\RelationIsDescriptor;
 use Fisharebest\Webtrees\I18N;
-use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
-
-use function uasort;
+use Fisharebest\Webtrees\Module\ModuleCustomTrait;
+use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\Tree;
 
 /**
  * Class RelationIsDescriptorAddon
+ *
+ * provides additional custom relation descriptors
+ *
+ * A word or phrase with size=1:25 that states object 1's relation is object 2.
+ * For example, you would read the following as
+ * "Joe Jacob's great-grandson is the submitter pointed to by the XREF @S1@":
+ * 0 INDI
+ * 1 NAME Joe /Jacob/
+ * 1 ASSO @S1@
+ * 2 RELA great-grandson
  */
-class RelationIsDescriptorAddon extends AbstractModule implements RelationIsDescriptor, ElementInterface, ModuleCustomInterface
+class RelationIsDescriptorAddon implements ModuleCustomInterface
 {
+    use ModuleCustomTrait;
+
     // List of const for module administration
 
     public const CUSTOM_TITLE       = 'Custom Relation Descriptors';
@@ -44,56 +55,6 @@ class RelationIsDescriptorAddon extends AbstractModule implements RelationIsDesc
     public const CUSTOM_WEBSITE     = self::CUSTOM_GITHUB . self::CUSTOM_MODULE . '/';
     public const CUSTOM_VERSION     = '2.1.0.1';
     public const CUSTOM_LAST        = self::CUSTOM_WEBSITE . 'raw/main/latest-version.txt';
-
-    /**
-     * provides additional custom relation descriptors
-     *
-     * A word or phrase with size=1:25 that states object 1's relation is object 2.
-     * For example, you would read the following as
-     * "Joe Jacob's great-grandson is the submitter pointed to by the XREF @S1@":
-     * 0 INDI
-     * 1 NAME Joe /Jacob/
-     * 1 ASSO @S1@
-     * 2 RELA great-grandson
-     *
-     * @param string $sex - the text depends on the sex of the *linked* individual
-     * @return array<string,string>
-     */
-    private function customDescriptorAddons(string $sex = 'U'): array
-    {
-        $values = [
-            'M' => [
-                'guru'        => I18N::translateContext('MALE', 'Guru'),
-            ],
-            'F' => [
-                'guru'        => I18N::translateContext('FEMALE', 'Guru'),
-            ],
-            'U' => [
-                'guru'        => I18N::translate('Guru'),
-            ],
-        ];
-
-        return $values[$sex] ?? $values['U'];
-    }
-
-    /**
-     * replaces this function in the parent module
-     *
-     * @param string $sex - the text depends on the sex of the *linked* individual
-     * @return array<string,string>
-     */
-    public function values(string $sex = 'U'): array
-    {
-        $parentValues = RelationIsDescriptor::values($sex);
-        $addonValues = $this->customDescriptorAddons($sex);
-        $values = array_merge($parentValues, $addonValues);
-
-        $tmp = $values[$sex] ?? $values['U'];
-
-        uasort($tmp, I18N::comparator());
-
-        return $tmp;
-    }
 
     /**
      * How should this module be identified in the control panel, etc.?
@@ -162,7 +123,8 @@ class RelationIsDescriptorAddon extends AbstractModule implements RelationIsDesc
      *
      * @return string
      */
-    public function customModuleAuthorName(): string {
+    public function customModuleAuthorName(): string
+    {
         return self::CUSTOM_AUTHOR;
     }
 
@@ -176,11 +138,59 @@ class RelationIsDescriptorAddon extends AbstractModule implements RelationIsDesc
         return true;
     }
 
+    public function accessLevel(Tree $tree, string $interface): int
+    {
+        return 0;
+        // TODO: Implement accessLevel() method.
+    }
+
+    public function setEnabled(bool $enabled): \Fisharebest\Webtrees\Module\ModuleInterface
+    {
+        // TODO: Implement setEnabled() method.
+        return $this;
+    }
+
+    public function setName(string $name): void
+    {
+        // TODO: Implement setName() method.
+    }
+
+    public function isEnabled(): bool
+    {
+        // TODO: Implement isEnabled() method.
+        return true;
+    }
+
+    public function setPreference(string $setting_name, string $setting_value): void
+    {
+        // TODO: Implement setPreference() method.
+    }
+    public function getPreference(string $setting_name, string $default = ''): string
+    {
+        // TODO: Implement getPreference() method.
+        return 'pref';
+    }
+    public function name(): string
+    {
+        // TODO: Implement name() method.
+        return 'name';
+    }
+    public function resourcesFolder(): string
+    {
+        // TODO: Implement resourcesFolder() method.
+        return '';
+    }
+
+    public function boot(): void
+    {
+        $ef = Registry::elementFactory();
+        $ef->register(['INDI:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+    }
+
     /**
      * Additional translations.
      *
      * @param string $language
-     *
      * @return array<string,string>
      */
     public function customTranslations(string $language): array
@@ -212,7 +222,7 @@ class RelationIsDescriptorAddon extends AbstractModule implements RelationIsDesc
     /**
      * @return array<string,string>
      */
-   private function dutchTranslations(): array
+    private function dutchTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
         return [

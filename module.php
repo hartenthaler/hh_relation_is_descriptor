@@ -43,12 +43,4 @@ Collection::make($filenames)
         require_once $filename;
     });
 
-/*
- * dependency check
-$ok = class_exists("Cissee\WebtreesExt\AbstractModule", true);
-if (!$ok) {
-    FlashMessages::addMessage("Missing dependency - Make sure to install all Vesta modules!");
-    return;
-}
- */
 return app(RelationIsDescriptorAddon::class);

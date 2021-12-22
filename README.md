@@ -6,7 +6,9 @@
 ![webtrees major version](https://img.shields.io/badge/webtrees-v2.x.x-green)
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/hh_relation_is_descriptor)
 
-!!! *This is a not tested alpha Version! Do not install!* !!!
+!!! *This is a beta Version! Do not install in a productive system!* !!!
+
+!!! Report issues, please !!!
 
 This [webtrees](https://www.webtrees.net/) custom module
 provides additional relation descriptors.
@@ -15,6 +17,7 @@ provides additional relation descriptors.
 This Readme contains the following main sections
 
 * [Description](#description)
+* [Usage](#usage)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Upgrade](#upgrade)
@@ -40,6 +43,17 @@ For example, you would read the following GEDCOM code as
 
 `2 RELA great-grandson`
 
+<a name="usage"></a>
+## Usage
+
+To add your custom relation descriptors
+you have to modify the file `ExtendedRelationIsDescriptor.php`.
+Replace the example lines in the function valuesAddon() by your custom descriptors.
+The text values depend on the sex of the *linked* individual.
+
+If you like to add translations for your custom relation descriptors
+you have to add them at the end of the file `RelationIsDescriptorAddon.php`.
+
 <a name="requirements"></a>
 ## Requirements
 
@@ -57,8 +71,7 @@ This section documents installation instructions for this module.
 3. Unzip the package into your `webtrees/modules_v4` directory of your web server.
 4. Rename the folder to `hh_relation_is_descriptor`. It's safe to overwrite the respective directory if it already exists.
 5. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Genealogy/Menus</span>,
-   and find the module. It will be called "RelationIsDescriptorAddon". Check if it has a tick for "Enabled".
-6. Finally, click SAVE, to complete the configuration.
+   and find the module. It will be called "Custom Relation Descriptors". Check if it has a tick for "Enabled".
 
 <a name="upgrade"></a>
 ## Upgrade
