@@ -185,6 +185,9 @@ class RelationIsDescriptorAddon implements ModuleCustomInterface
     {
         $ef = Registry::elementFactory();
         $ef->register(['INDI:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+        $ef->register(['INDI:*:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+        $ef->register(['INDI:*:_ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+        $ef->register(['FAM:*:_ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
     }
 
     /**
