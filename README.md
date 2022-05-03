@@ -59,14 +59,10 @@ you have to add them at the end of the file `RelationIsDescriptorAddon.php`.
 <a name="requirements"></a>
 ## Requirements
 
-This module requires **webtrees** version 2.
+This module requires **webtrees** version 2.1.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
 This module was tested with **webtrees** 2.1.1 version.
-
-Using this module together with webtrees 2.0 is possible,
-but you cannot use the selection menu to add a new custom relation descriptor.
-You have to edit raw GEDCOM.
 
 <a name="installation"></a>
 ## Installation
@@ -95,8 +91,8 @@ files with the new ones from the [latest release](https://github.com/hartenthale
 <a name="license"></a>
 ## License
 
-* Copyright (C) 2021 Hermann Hartenthaler
-* **webtrees** - Copyright 2021 webtrees development team.
+* Copyright (C) 2022 Hermann Hartenthaler
+* **webtrees** - Copyright 2022 webtrees development team.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
