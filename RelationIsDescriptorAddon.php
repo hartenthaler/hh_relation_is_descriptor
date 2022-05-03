@@ -53,7 +53,7 @@ class RelationIsDescriptorAddon implements ModuleCustomInterface
     public const CUSTOM_AUTHOR      = 'Hermann Hartenthaler';
     public const CUSTOM_GITHUB      = 'https://github.com/hartenthaler/';
     public const CUSTOM_WEBSITE     = self::CUSTOM_GITHUB . self::CUSTOM_MODULE . '/';
-    public const CUSTOM_VERSION     = '2.1.0.1';
+    public const CUSTOM_VERSION     = '2.1.1.0';
     public const CUSTOM_LAST        = self::CUSTOM_WEBSITE . 'raw/main/latest-version.txt';
 
     /**
@@ -181,13 +181,28 @@ class RelationIsDescriptorAddon implements ModuleCustomInterface
         return '';
     }
 
+    /**
+     * original function "register", which is not any longer available
+     *
+     * Register more elements.
+     *
+     * @param array<string,ElementInterface> $elements
+
+    private function register(array $elements): void
+    {
+        $this->elements = array_merge($this->elements(), $elements);
+    }
+     */
+
     public function boot(): void
     {
         $ef = Registry::elementFactory();
-        $ef->register(['INDI:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
-        $ef->register(['INDI:*:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
-        $ef->register(['INDI:*:_ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
-        $ef->register(['FAM:*:_ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+        // this was: $ef->register(['INDI:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+        $ef->make('INDI:ASSO:RELA');
+        $ef->make('INDI:*:ASSO:RELA');
+        $ef->make('INDI:*:_ASSO:RELA');
+        $ef->make('FAM:*:_ASSO:RELA');
+        x = new ExtendedRelationIsDescriptor();
     }
 
     /**
@@ -217,8 +232,13 @@ class RelationIsDescriptorAddon implements ModuleCustomInterface
     private function germanTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
+        // tbd how to translate context sensitive?
         return [
-            'Guru' => 'mein Guru',
+            'Custom Relation Descriptors' => 'Kundenindividuelle Beziehungsbezeichnungen',
+            'Provide additional relation descriptors' => 'Bereitstellen von zusätzlichen Beziehungsbezeichnungen',
+            'Landlord' => 'Vermieter',
+            'Landlord (male)' => 'Vermieter',
+            'Landlord (female)' => 'Vermieterin',
         ];
     }
 
@@ -228,8 +248,13 @@ class RelationIsDescriptorAddon implements ModuleCustomInterface
     private function dutchTranslations(): array
     {
         // Note the special characters used in plural and context-sensitive translations.
+        // tbd how to translate context sensitive?
         return [
-            'Guru' => 'Guru xxx',
+            'Custom Relation Descriptors' => 'Kundenindividuelle Beziehungsbezeichnungen',
+            'Provide additional relation descriptors' => 'Bereitstellen von zusätzlichen Beziehungsbezeichnungen',
+            'Landlord' => 'huisbaas',
+            'Landlord (male)' => 'huisbaas',
+            'Landlord (female)' => 'hospita',
         ];
     }
 }

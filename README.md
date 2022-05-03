@@ -59,10 +59,10 @@ you have to add them at the end of the file `RelationIsDescriptorAddon.php`.
 <a name="requirements"></a>
 ## Requirements
 
-This module requires **webtrees** version 2.1 or later.
+This module requires **webtrees** version 2.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** 2.1.0-alpha.1 version.
+This module was tested with **webtrees** 2.1.1 version.
 
 Using this module together with webtrees 2.0 is possible,
 but you cannot use the selection menu to add a new custom relation descriptor.

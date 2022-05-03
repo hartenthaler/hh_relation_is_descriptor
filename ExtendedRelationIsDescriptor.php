@@ -1,11 +1,14 @@
 <?php
 
 /**
- * RelationIsDescriptorAddon: custom module to add more relation descriptors
+ * class ExtendedRelationIsDescriptor
+ * module RelationIsDescriptorAddon
+ * custom module to add more relation descriptors which are used in ASSO:TYPE or _ASSO:TYPE
  *
  * webtrees: online genealogy
- * Copyright (C) 2021 Hermann Hartenthaler
- * Copyright (C) 2021 webtrees development team
+ * Copyright (C) 2022 Hermann Hartenthaler
+ * Copyright (C) 2022 webtrees development team
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -32,6 +35,8 @@ use function uasort;
  */
 class ExtendedRelationIsDescriptor extends RelationIsDescriptor
 {
+    protected const SEX = ['M', 'F', 'U'];
+
     /**
      * provides additional custom relation descriptors
      * Replace the example lines in this function by your custom descriptors!
@@ -40,23 +45,25 @@ class ExtendedRelationIsDescriptor extends RelationIsDescriptor
      */
     private function valuesAddon(): array
     {
-        $values = [
+        return [
             'M' => [
                 'guru'        => I18N::translateContext('MALE', 'Guru'),
                 'godparent'   => I18N::translate('Godfather'),
+                'landlord'    => I18N::translateContext('MALE', 'Landlord'),
             ],
             'F' => [
                 'guru'        => I18N::translateContext('FEMALE', 'Guru'),
                 'godparent'   => I18N::translate('Godmother'),
+                'landlord'    => I18N::translateContext('FEMALE', 'Landlord'),
             ],
             'U' => [
                 'guru'        => I18N::translate('Guru'),
                 'godfather'   => I18N::translate('Godfather'),
                 'godmother'   => I18N::translate('Godmother'),
                 'godparent'   => I18N::translate('Godparent'),
+                'landlord'    => I18N::translate('Landlord'),
             ],
         ];
-        return $values;
     }
 
     /**
@@ -66,7 +73,7 @@ class ExtendedRelationIsDescriptor extends RelationIsDescriptor
      */
     private function valuesOriginal(): array
     {
-        foreach (['M', 'F', 'U'] as $sexPart) {
+        foreach (self::SEX as $sexPart) {
             $values[$sexPart] = RelationIsDescriptor::values($sexPart);
         }
         return $values;
@@ -81,7 +88,7 @@ class ExtendedRelationIsDescriptor extends RelationIsDescriptor
         $values = [];
         $valuesOriginal = $this->valuesOriginal();
         $valuesAddon = $this->valuesAddon();
-        foreach (['M', 'F', 'U'] as $sexPart) {
+        foreach (self::SEX as $sexPart) {
             $values[$sexPart] = array_merge($valuesOriginal[$sexPart], $valuesAddon[$sexPart]);
         }
 
