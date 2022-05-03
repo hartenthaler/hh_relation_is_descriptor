@@ -181,28 +181,13 @@ class RelationIsDescriptorAddon implements ModuleCustomInterface
         return '';
     }
 
-    /**
-     * original function "register", which is not any longer available
-     *
-     * Register more elements.
-     *
-     * @param array<string,ElementInterface> $elements
-
-    private function register(array $elements): void
-    {
-        $this->elements = array_merge($this->elements(), $elements);
-    }
-     */
-
     public function boot(): void
     {
         $ef = Registry::elementFactory();
-        // this was: $ef->register(['INDI:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
-        $ef->make('INDI:ASSO:RELA');
-        $ef->make('INDI:*:ASSO:RELA');
-        $ef->make('INDI:*:_ASSO:RELA');
-        $ef->make('FAM:*:_ASSO:RELA');
-        x = new ExtendedRelationIsDescriptor();
+        $ef->registerTags(['INDI:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+        $ef->registerTags(['INDI:*:ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+        $ef->registerTags(['INDI:*:_ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
+        $ef->registerTags(['FAM:*:_ASSO:RELA' => new ExtendedRelationIsDescriptor(I18N::translate('Relationship'))]);
     }
 
     /**
