@@ -235,8 +235,8 @@ class RelationIsDescriptorAddon implements ModuleCustomInterface
         // Note the special characters used in plural and context-sensitive translations.
         // tbd how to translate context sensitive?
         return [
-            'Custom Relation Descriptors' => 'Kundenindividuelle Beziehungsbezeichnungen',
-            'Provide additional relation descriptors' => 'Bereitstellen von zusätzlichen Beziehungsbezeichnungen',
+            'Custom Relation Descriptors' => 'Aangepaste relatiebeschrijvingen',
+            'Provide additional relation descriptors' => 'Stel aanvullende relatiebenamingen beschikbaar',
             'Landlord' => 'huisbaas',
             'Landlord (male)' => 'huisbaas',
             'Landlord (female)' => 'hospita',
