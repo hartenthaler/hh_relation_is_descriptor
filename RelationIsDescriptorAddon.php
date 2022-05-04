@@ -237,9 +237,10 @@ class RelationIsDescriptorAddon implements ModuleCustomInterface
         return [
             'Custom Relation Descriptors' => 'Aangepaste relatiebeschrijvingen',
             'Provide additional relation descriptors' => 'Stel aanvullende relatiebenamingen beschikbaar',
-            'Landlord' => 'huisbaas',
-            'Landlord (male)' => 'huisbaas',
-            'Landlord (female)' => 'hospita',
+            'Guru' => 'Goeroe',
+            'Landlord' => 'Huisbaas',
+            'Landlord (male)' => 'Huisbaas',
+            'Landlord (female)' => 'Hospita',
         ];
     }
 }
