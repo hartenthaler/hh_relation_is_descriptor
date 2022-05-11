@@ -29,7 +29,7 @@ provides additional relation descriptors.
 Such a descriptor is a word or a phrase that states
 object 1's relation is object 2.
 For example, you would read the following GEDCOM code as
-"Joe Jacob's great-grandson is the submitter pointed to by the XREF @S1@":
+"The person pointed to by the XREF @S1@ is the landlord of Joe Jacob":
 
 `0 INDI`
 
@@ -37,7 +37,7 @@ For example, you would read the following GEDCOM code as
 
 `1 ASSO @S1@`
 
-`2 RELA great-grandson`
+`2 RELA landlord'
 
 The module supports
 * INDI:ASSO:RELA (GEDCOM standard like in the example above)
@@ -62,7 +62,7 @@ you have to add them at the end of the file `RelationIsDescriptorAddon.php`.
 This module requires **webtrees** version 2.1.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** 2.1.1 version.
+This module was tested with **webtrees** 2.1.2 version.
 
 <a name="installation"></a>
 ## Installation
@@ -70,16 +70,25 @@ This module was tested with **webtrees** 2.1.1 version.
 This section documents installation instructions for this module.
 
 1. Download the [latest release](https://github.com/hartenthaler/hh_relation_is_descriptor/releases/latest).
-3. Unzip the package into your `webtrees/modules_v4` directory of your web server.
-4. Rename the folder to `hh_relation_is_descriptor`. It's safe to overwrite the respective directory if it already exists.
-5. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Other</span>,
-   and find the module. It will be called "Custom Relation Descriptors".
+2. Unzip the package on your local computer. 
+3. Rename the folder to `hh_relation_is_descriptor`.
+4. Modify the functions in the above-mentioned files as you like (initial modification).
+5. Make a backup copy of your modifications.
+6. Transfer the modified folder to your `webtrees/modules_v4` directory at your web server.
+7. Login to **webtrees** as administrator, go to <span class="pointer">Control Panel/Modules/Other</span>,
+   and find the module. It will be called "Custom Relation Descriptors". Check if it is enabled.
 
 <a name="upgrade"></a>
 ## Upgrade
 
-To update simply replace the hh_relation_is_descriptor
-files with the new ones from the [latest release](https://github.com/hartenthaler/hh_relation_is_descriptor/releases/latest).
+To update
+1. Downlad the files from the [latest release](https://github.com/hartenthaler/hh_relation_is_descriptor/releases/latest).
+2. Unzip the package on your local computer.
+3. Rename the folder to `hh_relation_is_descriptor`.
+4. Modify the functions in the above-mentioned files as you like (based on your backup copy or based on the files at your webtrees server).
+5. Make a backup copy of your modifications.
+6. Transfer the modified folder to your `webtrees/modules_v4` directory at your web server. 
+7. Reload (refresh) your webtrees page in the browser.
 
 <a name="support"></a>
 ## Support
