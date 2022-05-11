@@ -37,7 +37,7 @@ For example, you would read the following GEDCOM code as
 
 `1 ASSO @S1@`
 
-`2 RELA landlord'
+`2 RELA landlord`
 
 The module supports
 * INDI:ASSO:RELA (GEDCOM standard like in the example above)
@@ -67,7 +67,7 @@ This module was tested with **webtrees** 2.1.2 version.
 <a name="installation"></a>
 ## Installation
 
-This section documents installation instructions for this module.
+This section documents installation instructions for this custom module.
 
 1. Download the [latest release](https://github.com/hartenthaler/hh_relation_is_descriptor/releases/latest).
 2. Unzip the package on your local computer. 
@@ -81,7 +81,8 @@ This section documents installation instructions for this module.
 <a name="upgrade"></a>
 ## Upgrade
 
-To update
+To upgrade to a new version of this custom module
+
 1. Downlad the files from the [latest release](https://github.com/hartenthaler/hh_relation_is_descriptor/releases/latest).
 2. Unzip the package on your local computer.
 3. Rename the folder to `hh_relation_is_descriptor`.
